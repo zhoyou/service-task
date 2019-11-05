@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.hollykunge.security.mapper.TaskInfoMapper">
+    <resultMap id="BaseResultMap" type="com.github.hollykunge.security.entity.TaskEntity">
+        <id column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="TASK_DES" property="taskDes" jdbcType="VARCHAR"/>
+        <result column="TASK_EXECUTOR_ID" property="taskExecutorId" jdbcType="VARCHAR"/>
+        <result column="TASK_NAME" property="taskName" jdbcType="VARCHAR"/>
+        <result column="TASK_PARENT_ID" property="taskParentId" jdbcType="VARCHAR"/>
+        <result column="TASK_PLAN_END" property="taskPlanEnd" jdbcType="TIMESTAMP"/>
+        <result column="TASK_PROCESS" property="taskProcess" jdbcType="VARCHAR"/>
+        <result column="TASK_RESOURCE_ID" property="taskResourceId" jdbcType="VARCHAR"/>
+        <result column="TASK_STATE" property="taskState" jdbcType="VARCHAR"/>
+        <result column="TASK_TIME_END" property="taskTimeEnd" jdbcType="TIMESTAMP"/>
+        <result column="TASK_TIME_START" property="taskTimeStart" jdbcType="TIMESTAMP"/>
+        <result column="TASK_TYPE" property="taskType" jdbcType="VARCHAR"/>
+        <!--<result column="FILE_ENCRYPE" property="fileEncrype" jdbcType="VARCHAR" />-->
+        <result column="CRT_TIME" property="crtTime" jdbcType="TIMESTAMP"/>
+        <result column="CRT_USER" property="crtUser" jdbcType="VARCHAR"/>
+        <result column="CRT_NAME" property="crtName" jdbcType="VARCHAR"/>
+        <result column="CRT_HOST" property="crtHost" jdbcType="VARCHAR"/>
+        <result column="ATTR1" property="attr1" jdbcType="VARCHAR"/>
+        <result column="ATTR2" property="attr2" jdbcType="VARCHAR"/>
+        <result column="ATTR3" property="attr3" jdbcType="VARCHAR"/>
+        <result column="ATTR4" property="attr4" jdbcType="VARCHAR"/>
+    </resultMap>
+</mapper>

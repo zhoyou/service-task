@@ -1,0 +1,61 @@
+server:
+  port: 8772
+  profiles:
+    active: dev
+spring:
+  application:
+    name: service-task
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:oracle:thin:@${ORACLE_HOST:10.11.24.136}:${ORACLE_PORT:1521}:arltr
+    username: lark_task
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: oracle.jdbc.OracleDriver
+    ###优化数据库连接池配置,该配置支持2000并发
+    druid:
+      max-active: 18
+      initial-size: 3
+      min-idle: 3
+      max-wait: 250000
+      time-between-eviction-runs-millis: 250000
+      min-evictable-idle-time-millis: 120000
+      validation-query: select 'x' from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      max-open-prepared-statements: 20
+      filter: stat,wall,log4j
+#eruka注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+      ###向注册中心上注册自己
+      register-with-eureka: true
+      ###是否需要从eureka上获取注册信息
+      fetch-registry: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+logging:
+  level:
+    com.github.hollykunge.dao: debug
+    tk.mybatis: debug
+
+##durid数据监控页面配置
+druid:
+  enabled: true
+  whiteip: 127.0.0.1
+  blackip: 192.168.1.1
+  loginUsername: admin
+  loginPassword: 123456
+##git创建仓库存放在服务器上的地址
+git:
+  repository:
+    address: C:\\lark_repo\\
+    defultMergeBranch: dev
